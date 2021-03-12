@@ -4,6 +4,7 @@
 // - Faites en sorte que la fonction retourne un format `heures : minutes : secondes`
 // - Appelez votre fonction avec l'argument `3700` et vérifiez que vous obtenez `1:1:40`
 
+// Méthode 1 : avec modulo *****************************************
 function format(num) {
     // 124 secondes => 2m et 4s
     // je sais que 1m = 60s
@@ -21,6 +22,21 @@ function format(num) {
     console.log(`${hours} : ${minutes} : ${secondes}`);
 }
 
+format(3700);
+
+// Méthode 2 : maths simple **********************************************
+function adamaFormat(num) {
+    var hours = Math.floor(num / 3600);
+    var rest = num - hours * 3600;
+    var minutes = Math.floor(rest / 60);
+    var seconds = rest - minutes * 60;
+    console.log(`${hours} : ${minutes} : ${seconds}`);
+}
+
+adamaFormat(3700);
+
+
+// Méthode 3 : sans maths => boucle & conditions ******************************
 function formatWithoutMaths(num) {
     var days = 0;
     var hours = 0;
@@ -44,14 +60,4 @@ function formatWithoutMaths(num) {
     console.log(`${hours} : ${minutes} : ${seconds}`);
 }
 
-function adamaFormat(num) {
-    var hours = Math.floor(num / 3600);
-    var rest = num - hours * 3600;
-    var minutes = Math.floor(rest / 60);
-    var seconds = rest - minutes * 60;
-    console.log(`${hours} : ${minutes} : ${seconds}`);
-}
-
-format(3700);
 formatWithoutMaths(3700);
-adamaFormat(3700);
